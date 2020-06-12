@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/arod1207/HW-9-GoodReadMeGenerator/issues"
   },
-  "homepage": "https://github.com/arod1207/HW-9-GoodReadMeGenerator#readme"
+  "homepage": "https://github.com/arod1207/HW-9-GoodReadMeGenerator#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "inquirer": "^7.1.0"
+  }
 }
