@@ -1,0 +1,25 @@
+{
+  "name": "readmegenerator",
+  "version": "1.0.0",
+  "description": "Easily put together a good README for a new project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arod1207/HW-9-GoodReadMeGenerator.git"
+  },
+  "keywords": [
+    "readme",
+    "git",
+    "github",
+    "generator"
+  ],
+  "author": "Armando Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arod1207/HW-9-GoodReadMeGenerator/issues"
+  },
+  "homepage": "https://github.com/arod1207/HW-9-GoodReadMeGenerator#readme"
+}
