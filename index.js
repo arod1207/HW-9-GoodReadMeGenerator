@@ -2,6 +2,8 @@ const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
 
+let picture;
+
 // asking users questions //
 
 function promptUser() {
@@ -72,8 +74,10 @@ function promptUser() {
     },
   ]);
 }
+
 // saved the function as a variable
 user = promptUser();
+
 user.then(function (user) {
   getUserData(user.userName);
 
@@ -85,13 +89,13 @@ user.then(function (user) {
         // console.log(response); // comment out at the end
         console.log("Retrieved user data");
 
-        let picture = response.data[0].owner.avatar_url;
+        picture = response.data[0].owner.avatar_url;
 
         if (user.userPic === "yes") {
-          user.userPic = picture;
+          user.userPic = `![Users GitHub Profile Image](${picture})`
           console.log(user.userPic);
-        } else {
-          console.log("no picture")
+        } else if (user.userPic === "no") {
+           user.userPic = " "
         }
 
         let readme = `# ${user.projectTitle}
@@ -132,7 +136,7 @@ user.then(function (user) {
   
   Go the extra mile and write tests for your application. Then provide examples on how to run them.
 
-  ![Users GitHub Profile Image](${user.userPic})
+  ${user.userPic}
   `;
 
         // end of generated Readme.md
@@ -145,7 +149,6 @@ user.then(function (user) {
         });
       })
       .catch(function (err) {
-        console.log("File was not created")
         console.log(err);
       })
 
@@ -154,58 +157,8 @@ user.then(function (user) {
         console.log(error);
         console.log("There was an error retrieving user data");
       })
-      // .finally(function () {
-      //   // always executed
-      // });
+      .finally(function () {
+        // always executed
+      });
   }
 });
-
-//   let readme = `# ${user.projectTitle}
-
-//   ## ${user.projectDesc}
-
-//   ## ${user.tableOfCont}
-
-//   * ${user.install}
-//   * ${user.usage}
-//   * ${user.license}
-//   * ${user.contributing}
-
-//   ## ${user.install}
-
-//   ## ${user.usage}
-
-//   ## ${user.license}
-
-//   🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-//   ## Badges
-
-//   ![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-
-//   Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-//   ## ${user.contributing}
-
-//   If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
-
-//   ## ${user.test}
-
-//   Go the extra mile and write tests for your application. Then provide examples on how to run them.
-
-//   ![Users GitHub Profile Image](${user.userPic})
-//   `
-
-//   // end of generated Readme.md
-
-//   // create readme file
-
-//   fs.writeFile('README.md', readme, function(err){
-//     if (err) throw err;
-//     console.log('README.md Created')
-//   })
-// }).catch(function(err){
-//   console.log(err);
-// })
-
-// getting information returned from github
