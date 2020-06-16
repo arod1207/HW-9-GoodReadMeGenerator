@@ -150,7 +150,7 @@ user.then(function (user) {
         // beginning of readme markdown //
         let readme = `
   
-        ${user.userPic}     
+         
   # ${user.projectTitle}   
 
   ## ${user.projectDesc}
@@ -173,7 +173,7 @@ user.then(function (user) {
   
   ### ${user.test}
   
-
+  ${user.userPic}   
 
   
   `;
