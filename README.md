@@ -1,30 +1,27 @@
 
   
-        ![Users GitHub Profile Image](https://avatars3.githubusercontent.com/u/60864501?v=4)     
-  # Generator   
+        ![Users GitHub Profile Image](https://avatars3.githubusercontent.com/u/18537011?v=4)     
+  # Good Readme Generator   
 
-  ## generator
+  ## Generates a readme based on user input
   
   * Installation
   * Usage
    
    
   
-  ### yup
+  ### Node.js is required
   
-  ### yup
+  ### to use application, type node index.js
   
-  ### Apache
+  ### MIT
   
-  ![Top Language](https://img.shields.io/github/languages/top/hozerpffp2009/generator) ![GitHub last commit](https://img.shields.io/github/last-commit/hozerpffp2009/generator)  ![GitHub Followers](https://img.shields.io/github/followers/hozerpffp2009?style=social)
-  
-  Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-  
-  
-  ### up
+  ![Top Language](https://img.shields.io/github/languages/top/arod1207/HW-5-Work-Day-Scheduler) ![GitHub last commit](https://img.shields.io/github/last-commit/arod1207/HW-5-Work-Day-Scheduler)  ![GitHub Followers](https://img.shields.io/github/followers/arod1207?style=social)
+    
+  ### 
   
   
-  ### yes
+  ### no test
   
 
 

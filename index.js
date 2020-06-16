@@ -105,7 +105,7 @@ user.then(function (user) {
       .get(`https://api.github.com/users/${userName}/repos?per_page=100`)
       .then(function (response) {
         // handle success
-        console.log(response); // comment out at the end
+        // console.log(response); // comment out at the end
         console.log("Retrieved user data");
 
         // User confirm if image is added or not //
@@ -114,7 +114,6 @@ user.then(function (user) {
 
         if (user.userPic === "yes") {
           user.userPic = `![Users GitHub Profile Image](${picture})`;
-          console.log(user.userPic);
         } else if (user.userPic === "no") {
           user.userPic = " ";
         }
@@ -168,10 +167,7 @@ user.then(function (user) {
   ### ${user.license}
   
   ![Top Language](https://img.shields.io/github/languages/top/${userName}/${user.repoName}) ![GitHub last commit](https://img.shields.io/github/last-commit/${userName}/${user.repoName})  ![GitHub Followers](https://img.shields.io/github/followers/${userName}?style=social)
-  
-  Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-  
-  
+    
   ### ${user.contributing}
   
   
