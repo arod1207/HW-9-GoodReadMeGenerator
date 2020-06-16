@@ -15,6 +15,11 @@ function promptUser() {
     },
     {
       type: "input",
+      message: "What is your repository name?: ",
+      name: "repoName",
+    },
+    {
+      type: "input",
       message: "Project Title: ",
       name: "projectTitle",
     },
@@ -162,7 +167,7 @@ user.then(function (user) {
   
   ### ${user.license}
   
-  ![Top Language](https://img.shields.io/github/languages/top/${userName}/hw-9-GoodReadMeGenerator) ![GitHub last commit](https://img.shields.io/github/last-commit/${userName}/hw-9-GoodReadMeGenerator)  ![GitHub Followers](https://img.shields.io/github/followers/${userName}?style=social)
+  ![Top Language](https://img.shields.io/github/languages/top/${userName}/${user.repoName}) ![GitHub last commit](https://img.shields.io/github/last-commit/${userName}/${user.repoName})  ![GitHub Followers](https://img.shields.io/github/followers/${userName}?style=social)
   
   Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
   
