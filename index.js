@@ -92,14 +92,18 @@ inquirer
     // call github api //
     axios
       .get(
-        `https://api.github.com/users/${answers.userName}/repos?per_page=100`
+        // `https://api.github.com/users/${answers.userName}/repos?per_page=100`
+        `https://api.github.com/users/${answers.userName}`
       )
       .then(function (response) {
         // handle success
-        // console.log(response);
+        console.log(response);
 
-        let picture = response.data[0].owner.avatar_url;
-
+        let picture = response.data.avatar_url;
+        console.log(picture) // remove
+        let email = response.data.email;
+        console.log(email)
+ 
         if (answers.userPic === "yes") {
           answers.userPic = `![Users GitHub Profile Image](${picture})`;
         } else if (answers.userPic === "no") {
