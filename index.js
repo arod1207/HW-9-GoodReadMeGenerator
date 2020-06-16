@@ -24,9 +24,23 @@ function promptUser() {
       name: "projectDesc",
     },
     {
-      type: "input",
-      message: "Table of Contents: ",
+      type: "checkbox",
+      message: "Table of Contents Options: ",
       name: "tableOfCont",
+      choices: [
+        {
+          name: "Installation",
+        },
+        {
+          name: "Usage",
+        },
+        {
+          name: "Credits",
+        },
+        {
+          name: "License",
+        },
+      ],
     },
     {
       type: "input",
@@ -86,28 +100,64 @@ user.then(function (user) {
       .get(`https://api.github.com/users/${userName}/repos?per_page=100`)
       .then(function (response) {
         // handle success
-        // console.log(response); // comment out at the end
+        console.log(response); // comment out at the end
         console.log("Retrieved user data");
+
+        // User confirm if image is added or not //
 
         picture = response.data[0].owner.avatar_url;
 
         if (user.userPic === "yes") {
-          user.userPic = `![Users GitHub Profile Image](${picture})`
+          user.userPic = `![Users GitHub Profile Image](${picture})`;
           console.log(user.userPic);
         } else if (user.userPic === "no") {
-           user.userPic = " "
+          user.userPic = " ";
         }
 
-        let readme = `# ${user.projectTitle}
+      // if statments for selected table of contents
+        
+
+        if (user.tableOfCont[0] === undefined) {
+          user.tableOfCont[0] = " "
+        } else {
+          user.tableOfCont[0] = `* ${user.tableOfCont[0]}`
+        }
+
+        if (user.tableOfCont[1] === undefined) {
+          user.tableOfCont[1] = " "
+        } else {
+          user.tableOfCont[1] = `* ${user.tableOfCont[1]}`
+        }
+
+        if (user.tableOfCont[2] === undefined) {
+          user.tableOfCont[2] = " "
+        } else {
+          user.tableOfCont[2] = `* ${user.tableOfCont[2]}`
+        }
+
+        if (user.tableOfCont[3] === undefined) {
+          user.tableOfCont[3] = " "
+        } else {
+          user.tableOfCont[3] = `* ${user.tableOfCont[3]}`
+        }
+
+    
+
+        console.log(user.tableOfCont);
+
+       
+
+        // beginning of readme markdown //
+        let readme = `
+        
+  # ${user.projectTitle}   
 
   ## ${user.projectDesc}
   
-  ## ${user.tableOfCont}
-  
-  * ${user.install}
-  * ${user.usage}
-  * ${user.license}
-  * ${user.contributing}
+  ${user.tableOfCont[0]}
+  ${user.tableOfCont[1]}
+  ${user.tableOfCont[2]}
+  ${user.tableOfCont[3]}
   
   
   ## ${user.install}
@@ -118,8 +168,6 @@ user.then(function (user) {
   
   ## ${user.license}
   
-  
-  🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
   
   ## Badges
   
