@@ -1,38 +1,32 @@
 
-        
-  # test   
+  
+        ![Users GitHub Profile Image](https://avatars2.githubusercontent.com/u/62083284?v=4)     
+  # Readme   
 
-  ## dest
+  ## test
   
+  * Installation
   * Credits
-  * License
    
    
   
+  ### easy
   
-  ## 
+  ### test
   
+  ### Apache
   
-  ## 
-  
-  
-  ## Apache
-  
-  
-  ## Badges
-  
-  ![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
+  ![Top Language](https://img.shields.io/github/languages/top/journeycruz/HW-9-GoodReadMeGenerator) ![GitHub last commit](https://img.shields.io/github/last-commit/journeycruz/HW-9-GoodReadMeGenerator)  ![GitHub Followers](https://img.shields.io/github/followers/journeycruz?style=social)
   
   Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
   
   
-  ## 
+  ### teset
   
-  If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
   
-  ## 
+  ### test
   
-  Go the extra mile and write tests for your application. Then provide examples on how to run them.
 
-  ![Users GitHub Profile Image](https://avatars3.githubusercontent.com/u/18537011?v=4)
+
+  
   

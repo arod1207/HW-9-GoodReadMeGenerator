@@ -116,7 +116,6 @@ user.then(function (user) {
 
       // if statments for selected table of contents
         
-
         if (user.tableOfCont[0] === undefined) {
           user.tableOfCont[0] = " "
         } else {
@@ -141,15 +140,13 @@ user.then(function (user) {
           user.tableOfCont[3] = `* ${user.tableOfCont[3]}`
         }
 
-    
-
-        console.log(user.tableOfCont);
 
        
 
         // beginning of readme markdown //
         let readme = `
-        
+  
+        ${user.userPic}     
   # ${user.projectTitle}   
 
   ## ${user.projectDesc}
@@ -159,32 +156,25 @@ user.then(function (user) {
   ${user.tableOfCont[2]}
   ${user.tableOfCont[3]}
   
+  ### ${user.install}
   
-  ## ${user.install}
+  ### ${user.usage}
   
+  ### ${user.license}
   
-  ## ${user.usage}
-  
-  
-  ## ${user.license}
-  
-  
-  ## Badges
-  
-  ![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
+  ![Top Language](https://img.shields.io/github/languages/top/${userName}/hw-9-GoodReadMeGenerator) ![GitHub last commit](https://img.shields.io/github/last-commit/${userName}/hw-9-GoodReadMeGenerator)  ![GitHub Followers](https://img.shields.io/github/followers/${userName}?style=social)
   
   Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
   
   
-  ## ${user.contributing}
+  ### ${user.contributing}
   
-  If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
   
-  ## ${user.test}
+  ### ${user.test}
   
-  Go the extra mile and write tests for your application. Then provide examples on how to run them.
 
-  ${user.userPic}
+
+  
   `;
 
         // end of generated Readme.md
