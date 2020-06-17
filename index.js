@@ -100,6 +100,7 @@ inquirer
       .then(function (response) {
         // handle success
         // console.log(response);
+        console.log(answers.license)
 
         let picture = response.data.avatar_url;
 
@@ -109,9 +110,22 @@ inquirer
           answers.userEmail = " ";
         }
 
-        // if statement if NONE on license is selected
+       else if (answers.license === "NONE") {
+          answers.license = " ";
+        } else {
+          answers.license = `### ${answers.license}`;
+        }
 
-        if (answers.license === "NONE") {
+        // if statements for licesne selection
+        if (answers.license === "Apache"){
+          answers.license = `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+        } else if (answers.license === "BSD") {
+          answers.license = `[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`
+        } else if (answers.license === "GNU"){
+          answers.license = `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
+        } else if (answers.license === "MIT") {
+          answers.license = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+        } else if (answers.license === "NONE") {
           answers.license = " ";
         } else {
           answers.license = `### ${answers.license}`;
@@ -150,7 +164,7 @@ inquirer
         } else {
           answers.tableOfCont[3] = `* ${answers.tableOfCont[3]}`;
         }
-
+//  Start of ReadME markdown //
         let readme = `
 
 # ${answers.projectTitle}   
@@ -180,6 +194,7 @@ ${answers.userPic}
 ${answers.userEmail}
     
       `;
+// end of readme markup //
 
         fs.writeFile("README.md", readme, (err) => {
           if (err) throw err;
