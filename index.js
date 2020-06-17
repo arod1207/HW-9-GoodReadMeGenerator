@@ -96,31 +96,27 @@ inquirer
   .then((answers) => {
     // call github api //
     axios
-      .get(
-        `https://api.github.com/users/${answers.userName}`
-      )
+      .get(`https://api.github.com/users/${answers.userName}`)
       .then(function (response) {
         // handle success
         // console.log(response);
 
-       
-
         let picture = response.data.avatar_url;
-        
-        if (answers.confirmEmail === 'yes'){
-          answers.userEmail = `#### ${answers.userEmail}`
-        } else if (answers.confirmEmail === 'no'){
+
+        if (answers.confirmEmail === "yes") {
+          answers.userEmail = `#### ${answers.userEmail}`;
+        } else if (answers.confirmEmail === "no") {
           answers.userEmail = " ";
         }
 
-        // if statement if NONE on license is selected 
+        // if statement if NONE on license is selected
 
-        if (answers.license === 'NONE'){
+        if (answers.license === "NONE") {
           answers.license = " ";
         } else {
-          answers.license = `### ${answers.license}`
+          answers.license = `### ${answers.license}`;
         }
- 
+
         // if statement for user pic
 
         if (answers.userPic === "yes") {
@@ -155,34 +151,33 @@ inquirer
           answers.tableOfCont[3] = `* ${answers.tableOfCont[3]}`;
         }
 
-        
         let readme = `
 
-      # ${answers.projectTitle}   
+# ${answers.projectTitle}   
     
-      ## ${answers.projectDesc}
+## ${answers.projectDesc}
       
-      ${answers.tableOfCont[0]}
-      ${answers.tableOfCont[1]}
-      ${answers.tableOfCont[2]}
-      ${answers.tableOfCont[3]}
+${answers.tableOfCont[0]}
+${answers.tableOfCont[1]}
+${answers.tableOfCont[2]}
+${answers.tableOfCont[3]}
       
-      ### ${answers.install}
+### ${answers.install}
       
-      ### ${answers.usage}
+### ${answers.usage}
       
-      ${answers.license}
+${answers.license}
       
-      ![Top Language](https://img.shields.io/github/languages/top/${answers.userName}/${answers.repoName}) ![GitHub last commit](https://img.shields.io/github/last-commit/${answers.userName}/${answers.repoName})  ![GitHub Followers](https://img.shields.io/github/followers/${answers.userName}?style=social)
+![Top Language](https://img.shields.io/github/languages/top/${answers.userName}/${answers.repoName}) ![GitHub last commit](https://img.shields.io/github/last-commit/${answers.userName}/${answers.repoName})  ![GitHub Followers](https://img.shields.io/github/followers/${answers.userName}?style=social)
         
-      ### ${answers.contributing}
+### ${answers.contributing}
       
       
-      ### ${answers.test}
+### ${answers.test}
       
-      ${answers.userPic}   
+${answers.userPic}   
 
-      ${answers.userEmail}
+${answers.userEmail}
     
       `;
 
