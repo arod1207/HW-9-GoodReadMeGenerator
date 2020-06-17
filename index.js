@@ -16,6 +16,11 @@ inquirer
     },
     {
       type: "input",
+      message: "What is your email address?: ",
+      name: "userEmail",
+    },
+    {
+      type: "input",
       message: "Project Title: ",
       name: "projectTitle",
     },
@@ -56,7 +61,7 @@ inquirer
     {
       type: "list",
       message: "License: ",
-      choices: ["Apache", "BSD", "GNU", "MIT"],
+      choices: ["Apache", "BSD", "GNU", "MIT", "NONE"],
       name: "license",
     },
     {
@@ -82,7 +87,7 @@ inquirer
       type: "list",
       message: "Would you like to add your email address?: ",
       choices: ["Yes", "No"],
-      name: "userEmail",
+      name: "confirmEmail",
       filter: function (val) {
         return val.toLowerCase();
       },
@@ -92,25 +97,39 @@ inquirer
     // call github api //
     axios
       .get(
-        // `https://api.github.com/users/${answers.userName}/repos?per_page=100`
         `https://api.github.com/users/${answers.userName}`
       )
       .then(function (response) {
         // handle success
-        console.log(response);
+        // console.log(response);
+
+       
 
         let picture = response.data.avatar_url;
-        console.log(picture) // remove
-        let email = response.data.email;
-        console.log(email)
+        
+        if (answers.confirmEmail === 'yes'){
+          answers.userEmail = `#### ${answers.userEmail}`
+        } else if (answers.confirmEmail === 'no'){
+          answers.userEmail = " ";
+        }
+
+        // if statement if NONE on license is selected 
+
+        if (answers.license === 'NONE'){
+          answers.license = " ";
+        } else {
+          answers.license = `### ${answers.license}`
+        }
  
+        // if statement for user pic
+
         if (answers.userPic === "yes") {
           answers.userPic = `![Users GitHub Profile Image](${picture})`;
         } else if (answers.userPic === "no") {
           answers.userPic = " ";
         }
 
-        // if statments for selected table of contents
+        // if statements for selected table of contents
 
         if (answers.tableOfCont[0] === undefined) {
           answers.tableOfCont[0] = " ";
@@ -136,6 +155,7 @@ inquirer
           answers.tableOfCont[3] = `* ${answers.tableOfCont[3]}`;
         }
 
+        
         let readme = `
 
       # ${answers.projectTitle}   
@@ -151,7 +171,7 @@ inquirer
       
       ### ${answers.usage}
       
-      ### ${answers.license}
+      ${answers.license}
       
       ![Top Language](https://img.shields.io/github/languages/top/${answers.userName}/${answers.repoName}) ![GitHub last commit](https://img.shields.io/github/last-commit/${answers.userName}/${answers.repoName})  ![GitHub Followers](https://img.shields.io/github/followers/${answers.userName}?style=social)
         
@@ -161,6 +181,8 @@ inquirer
       ### ${answers.test}
       
       ${answers.userPic}   
+
+      ${answers.userEmail}
     
       `;
 
